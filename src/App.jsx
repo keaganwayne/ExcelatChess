@@ -209,7 +209,7 @@ useEffect(() => {
   let cancelled = false;
 
   try {
-    const engine = new Worker("/stockfish-18-lite-single.js");
+    const engine = new Worker(`${import.meta.env.BASE_URL}stockfish-18-lite-single.js`);
     engineRef.current = engine;
 
     engine.onmessage = (event) => {
