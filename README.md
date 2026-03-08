@@ -1,16 +1,62 @@
-# React + Vite
+# ExcelatChess
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ExcelatChess is a browser-based chess game disguised as a spreadsheet workspace.
 
-Currently, two official plugins are available:
+At first glance, it looks like a fake office sheet inspired by Google Sheets. Hidden inside the sheet is a playable chessboard rendered as coded cell values, allowing a full game to unfold inside what appears to be an ordinary spreadsheet document.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose
 
-## React Compiler
+This project was built as a design and programming experiment:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- to create a playable chess interface that blends into a spreadsheet-style UI
+- to preserve the visual language of office software rather than traditional game design
+- to explore browser-based chess logic, engine integration, and disguised interface design
 
-## Expanding the ESLint configuration
+The goal was not just to make another chess app, but to make one that feels like a strange, believable workbook someone might leave open on their screen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Spreadsheet-inspired interface
+- Hidden 8×8 chessboard embedded in sheet cells
+- Click-to-move interaction
+- Automatic queen promotion
+- Play as white or black
+- Adjustable engine strength from 1 to 10
+- Local browser save/resume
+- Static web deployment support
+
+## How it works
+
+The visible UI is a fake spreadsheet shell. The board is mapped to a fixed cell range inside the sheet, while actual chess rules are handled underneath by a chess rules library.
+
+The opponent is powered by a browser-oriented Stockfish build running in the front end.
+
+## Controls
+
+- Select a side from the opening screen
+- Choose a `Calc Depth` from 1 to 10
+- Click a piece to view legal moves
+- Click a highlighted destination to move
+- Use `Initialize Sheet` to restart
+- Use `Resume Workbook` to continue a saved local game
+
+## Tech Stack
+
+- React
+- Vite
+- chess.js
+- Browser-oriented Stockfish engine
+- Static assets served through Vite public files
+
+## Development Notes
+
+During development, multiple engine approaches were tested.
+
+An earlier wasm-based route was explored, but it introduced browser/runtime friction for the intended static hosting workflow. The final implementation uses a browser-oriented Stockfish build that fits the project better for local browser play and static deployment.
+
+## Running Locally
+
+Install dependencies:
+
+```bash
+npm install
