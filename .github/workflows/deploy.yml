@@ -1,0 +1,10 @@
+ExcelatChess
+  .github
+    workflows
+      deploy.yml
+  node_modules
+  public
+  src
+  index.html
+  package.json
+  vite.config.js
