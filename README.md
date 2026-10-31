@@ -44,3 +44,7 @@ npm run preview
 - Use `Initialize Sheet` to start a new game.
 - Use `Resume Workbook` to restore a saved game.
 - Click pieces and highlighted cells to make moves.
+
+## Privacy and security
+
+Game state stays in the browser. Stockfish runs locally in a Web Worker. No school database or user account backend is used. See [SECURITY.md](SECURITY.md).
